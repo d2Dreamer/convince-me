@@ -5,6 +5,7 @@ A unique Telegram chatbot powered by Aptos blockchain where users engage in a tr
 ## 🎯 Project Overview
 
 This project was developed for the Consensus Hong Kong 2025 Hackathon. It combines:
+
 - Telegram Bot Integration
 - Aptos Blockchain Technology
 - Interactive Treasure Hunt Gameplay
@@ -27,10 +28,12 @@ This project was developed for the Consensus Hong Kong 2025 Hackathon. It combin
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Telegram account
 - Aptos wallet with APT tokens
 
 ### Installation
+
 1. #WIP
 
 ## 💰 How to Play
