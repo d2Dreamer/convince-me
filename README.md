@@ -41,6 +41,8 @@ This project was developed for the Consensus Hong Kong 2025 Hackathon. It combin
 4. Use strategy and wit to convince the bot to reveal its treasure
 5. Receive your reward
 
+![Alt text](image.png)
+
 ## 🔐 Security
 
 - All transactions are secured by Aptos blockchain
