@@ -13,6 +13,7 @@ import App from "@/App.tsx";
 import { Toaster } from "@/components/ui/toaster.tsx";
 import { WalletProvider } from "@/components/WalletProvider.tsx";
 import { WrongNetworkAlert } from "@/components/WrongNetworkAlert";
+import { BrowserRouter } from "react-router-dom";
 
 const queryClient = new QueryClient();
 
@@ -20,7 +21,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <WalletProvider>
       <QueryClientProvider client={queryClient}>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
         <WrongNetworkAlert />
         <Toaster />
       </QueryClientProvider>
