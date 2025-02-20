@@ -4,9 +4,9 @@ version = "1.0.0"
 authors = []
 
 [addresses]
-convince_me = "0x12d1a5a71c2bb02fbfc41c085a98f24741033cf4d5c63d5718ec38c267b8c88a"
+convince_me = "0x737cebf35e230c8825779ee36a53e1c5c1b8bc6858d1485955323b3740ea019d"
 dead_wallet = "0x0"
-agent_addr = "2e0729f31dee097e361eef8859f40cbe0860372b1565908f0985989bc3ccba20"
+agent_addr = "0x9934977f803e59c735cb1eef5dad11345533d5435d352492c5f030a5f4adf8fa"
 
 [dev-addresses]
 # convince_me = "0x1337"

@@ -61,14 +61,12 @@ module convince_me::core {
 
     fun init_module(convince_me: &signer) {
         let constructor_ref = &object::create_object(signer::address_of(convince_me));
-        let default_prompt = Prompt { message: string::utf8(b""), submitter_address: @dead_wallet };
+        // let default_prompt = Prompt { message: string::utf8(b""), submitter_address: @dead_wallet };
         let info = Info {
             treasury: fungible_asset::create_store(constructor_ref, utils::apt_metadata()),
             treasury_extend_ref: object::generate_extend_ref(constructor_ref),
-            current_prompt: option::some(default_prompt),
+            current_prompt: option::none(),
         };
-
-        // event::emit(TreasureInitialized { treasury: object::address_from_constructor_ref(constructor_ref) });
         
         move_to(convince_me, info);
     }
@@ -82,14 +80,18 @@ module convince_me::core {
         // ensure there is no pending prompt 
         assert!(!is_prompt_available(), EAGENT_HAS_PENDING_PROMPT);
         // set the prompt
-        let current_prompt = mut_prompt();
-        current_prompt.message = message;
-        current_prompt.submitter_address = signer::address_of(submitter);
+        let prompt = Prompt { message, submitter_address: signer::address_of(submitter) };
+        option::some(prompt);
+        let info = borrow_global_mut<Info>(@convince_me);
+        info.current_prompt = option::some(prompt);
         // withdraw 1 APT from the submitter and deposit it into the treasury
-        primary_fungible_store::transfer(
+        fungible_asset::transfer(
             submitter,
-            utils::apt_metadata(),
-            object::object_address(&treasury()),
+            primary_fungible_store::ensure_primary_store_exists(
+                signer::address_of(submitter),
+                utils::apt_metadata()
+            ),
+            treasury(),
             utils::prompt_price()
         );
         // emit event
@@ -105,15 +107,18 @@ module convince_me::core {
         assert!(signer::address_of(agent) == @agent_addr, ENOT_AGENT);
         let (current_prompt_submitter_addr, _) = current_prompt();
         // transfer 1 APT from the treasury to the agent
-        primary_fungible_store::transfer(
+        fungible_asset::transfer(
             &treasury_signer(),
-            utils::apt_metadata(),
-            current_prompt_submitter_addr,
+            treasury(),
+            primary_fungible_store::ensure_primary_store_exists(
+                current_prompt_submitter_addr,
+                utils::apt_metadata()
+            ),
             treasury_balance()
         );
         // set the prompt to default
-        let current_prompt = mut_prompt();
-        *current_prompt = Prompt { message: string::utf8(b""), submitter_address: @dead_wallet };
+        let info = borrow_global_mut<Info>(@convince_me);
+        option::extract(&mut info.current_prompt);
     }
 
     /// Reject the prompt
@@ -130,32 +135,32 @@ module convince_me::core {
 
     #[view]
     /// Returns the amount of APT to pay per prompt
-    fun prompt_price(): u64 { utils::prompt_price() }
+    public fun prompt_price(): u64 { utils::prompt_price() }
 
     #[view]
     /// Returns the treasury object store
-    fun treasury(): Object<FungibleStore> acquires Info {
+    public fun treasury(): Object<FungibleStore> acquires Info {
         let info = borrow_global<Info>(@convince_me);
         info.treasury
     }
 
     #[view]
     /// Returns the treasury balance
-    fun treasury_balance(): u64 acquires Info {
+    public fun treasury_balance(): u64 acquires Info {
         let info = borrow_global<Info>(@convince_me);
         fungible_asset::balance(info.treasury)
     }
 
     #[view]
     /// Returns if there is a prompt available
-    fun is_prompt_available(): bool acquires Info {
+    public fun is_prompt_available(): bool acquires Info {
         let info = borrow_global<Info>(@convince_me);
         option::is_some(&info.current_prompt)
     }
 
     #[view]
     /// Returns the current prompt (tuple: address, message)
-    fun current_prompt(): (address, String) acquires Info {
+    public fun current_prompt(): (address, String) acquires Info {
         let prompt = prompt();
         (prompt.submitter_address, prompt.message)
     }
