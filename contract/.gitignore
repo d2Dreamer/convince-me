@@ -1,0 +1,16 @@
+.aptos
+build
+.coverage_map.mvcov
+.trace
+gas-profiling
+
+# packages
+
+
+
+# python
+__pycache__
+
+# misc
+tmp
+public.key
