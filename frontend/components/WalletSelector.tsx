@@ -1,4 +1,9 @@
-import { WalletItem, isInstallRequired, truncateAddress, useWallet } from "@aptos-labs/wallet-adapter-react";
+import {
+  WalletItem,
+  isInstallRequired,
+  truncateAddress,
+  useWallet,
+} from "@aptos-labs/wallet-adapter-react";
 import { Copy, LogOut } from "lucide-react";
 import { useCallback } from "react";
 // Internal components
@@ -40,7 +45,9 @@ export function WalletSelector() {
   return connected ? (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button>{account?.ansName || truncateAddress(account?.address) || "Unknown"}</Button>
+        <Button>
+          {account?.ansName || truncateAddress(account?.address) || "Unknown"}
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onSelect={copyAddress} className="gap-2">
@@ -52,18 +59,24 @@ export function WalletSelector() {
       </DropdownMenuContent>
     </DropdownMenu>
   ) : (
-    <WalletItem wallet={mizuWallet} className="flex items-center justify-between px-4 py-3 gap-4 border rounded-md">
-      <div className="flex items-center gap-4">
-        <WalletItem.Icon className="h-6 w-6" />
-        <WalletItem.Name className="text-base font-normal" />
-      </div>
+    <WalletItem
+      wallet={mizuWallet}
+      className="flex items-center justify-between  gap-4   rounded-md"
+    >
       {isInstallRequired(mizuWallet) ? (
-        <Button size="sm" variant="ghost" asChild>
+        <Button
+          size="sm"
+          variant="ghost"
+          className="bg-transparent border-none"
+          asChild
+        >
           <WalletItem.InstallLink />
         </Button>
       ) : (
         <WalletItem.ConnectButton asChild>
-          <Button size="sm">Connect</Button>
+          <Button size="sm" className="">
+            Connect
+          </Button>
         </WalletItem.ConnectButton>
       )}
     </WalletItem>

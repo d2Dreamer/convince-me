@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fruktur:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -71,7 +73,19 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+body {
+  background-color: #1c0d28;
+  color: white;
+}
+
+@layer components {
+  .disable-blur {
+    image-rendering: -webkit-optimize-contrast;
   }
 }

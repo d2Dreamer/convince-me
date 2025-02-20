@@ -25,5 +25,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Toaster />
       </QueryClientProvider>
     </WalletProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
