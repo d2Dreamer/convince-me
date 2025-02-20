@@ -54,10 +54,6 @@ function ChatPage() {
       setChatLoading(false);
     }
   };
-  const [hoveredCard, setHoveredCard] = useState<string | null>("PacaChat");
-
-  const handleMouseEnter = (cardTitle: string) => setHoveredCard(cardTitle);
-  const handleMouseLeave = () => setHoveredCard("PacaChat");
 
   const containerRef = useRef<HTMLDivElement>(null);
   return (

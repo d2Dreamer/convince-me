@@ -3,7 +3,7 @@ import { AptosWalletAdapterProvider } from "@aptos-labs/wallet-adapter-react";
 // Internal components
 import { useToast } from "@/components/ui/use-toast";
 // Internal constants
-import { NETWORK, APTOS_API_KEY } from "@/constants";
+import { NETWORK } from "@/constants";
 
 export function WalletProvider({ children }: PropsWithChildren) {
   const { toast } = useToast();
@@ -17,8 +17,9 @@ export function WalletProvider({ children }: PropsWithChildren) {
           // Learn more https://docs.mizu.io/docs/preparation/mizu-app-id
           appId: undefined,
           // Learn more https://docs.mizu.io/docs/preparation/manifest-json
-          manifestURL: "https://assets.mz.xyz/static/config/mizuwallet-connect-manifest.json",
-          aptosApiKey: APTOS_API_KEY,
+          manifestURL:
+            "https://assets.mz.xyz/static/config/mizuwallet-connect-manifest.json",
+          // aptosApiKey: APTOS_API_KEY || "",
         },
       }}
       optInWallets={["Mizu Wallet"]}
