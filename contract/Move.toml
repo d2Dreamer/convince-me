@@ -1,12 +1,20 @@
 [package]
-name = "TelegramCounterAppTemplate"
+name = "ConvinceMe"
 version = "1.0.0"
 authors = []
 
 [addresses]
-counter_app_addr = "_"
+convince_me = "0x12d1a5a71c2bb02fbfc41c085a98f24741033cf4d5c63d5718ec38c267b8c88a"
+dead_wallet = "0x0"
+agent_addr = "2e0729f31dee097e361eef8859f40cbe0860372b1565908f0985989bc3ccba20"
 
-[dependencies]
-AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", rev = "mainnet", subdir = "aptos-move/framework/aptos-framework" }
+[dev-addresses]
+# convince_me = "0x1337"
+# agent_addr = "0xc1"
+
+[dependencies.AptosFramework]
+git = "https://github.com/aptos-labs/aptos-framework.git"
+rev = "mainnet"
+subdir = "aptos-framework"
 
 [dev-dependencies]

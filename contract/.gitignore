@@ -12,5 +12,5 @@ gas-profiling
 __pycache__
 
 # misc
-tmp
+tmp.move
 public.key
