@@ -1,39 +1,75 @@
-## Telegram Mini App Clicker Game Template
+# 🤖 Aptos Treasure Hunt Bot
 
-This template provides a ready to use clicker game dapp that can be run as a Telegram Mini App. It uese the Aptos Wallet Adapter to give you out of the box support. Under the hood, it’s powered by [Mizu Wallet](https://mizu.io/).
+A unique Telegram chatbot powered by Aptos blockchain where users engage in a treasure hunt through conversation. Players must use APT tokens to send prompts and convince the bot to reveal its treasure through strategic dialogue.
 
-## Read the template docs
+## 🎯 Project Overview
 
-To get started with the template and learn more about the functionality and usage, head over to the [template docs](https://learn.aptoslabs.com/en/dapp-templates/telegram-mini-app-template)
+This project was developed for the Consensus Hong Kong 2025 Hackathon. It combines:
 
-## The template provides:
+- Telegram Bot Integration
+- Aptos Blockchain Technology
+- Interactive Treasure Hunt Gameplay
+- Token-gated Conversations
 
-- **Folder structure** - A pre-made dapp folder structure with a `frontend` and `contract` folders.
-- **Dapp infrastructure** - All required dependencies a dapp needs to start building on the Aptos network.
-- **Clicker game functionality implementation** - Pre-made `counter` components to read and increment the counter.
-- **Telegram Mini App integration** - The app can be run as a Telegram mini app.
+## ✨ Features
 
-### What tools the template uses?
+- **Pay-to-Chat**: Users spend APT tokens to send messages to the bot
+- **Treasure Hunt**: Engage in strategic conversations to discover hidden treasures
+- **Blockchain Integration**: Seamless integration with Aptos blockchain for secure transactions
+- **Real-time Interaction**: Instant responses through Telegram platform
 
-- React framework
-- Vite development tool
-- shadcn/ui + tailwind for styling
-- Aptos TS SDK
-- Aptos Wallet Adapter
-- Node based Move commands
-- Telegram mini app SDK
-- [Mizu Wallet SDK Core](https://docs.mizu.io/docs/api-connect/core) if you choose seamless signing experience
+## 🛠️ Technical Stack
 
-### What Move commands are available?
+- **Blockchain**: Aptos
+- **Platform**: Telegram Bot API
+- **Token**: APT (Aptos native token)
+- **Smart Contracts**: Move language
 
-The tool utilizes [aptos-cli npm package](https://github.com/aptos-labs/aptos-cli) that lets us run Aptos CLI in a Node environment.
+## 🚀 Getting Started
 
-Some commands are built-in the template and can be ran as a npm script, for example:
+### Prerequisites
 
-- `npm run move:test` - a command to run Move unit tests
-- `npm run move:compile` - a command to compile the Move contract
-- `npm run move:publish` - a command to publish the Move contract
-- `npm run dev` - a command to run the frontend locally
-- `npm run deploy` - a command to deploy the dapp to Vercel
+- Telegram account
+- Aptos wallet with APT tokens
 
-For all other available CLI commands, can run `npx aptos` and see a list of all available commands.
+### Installation
+
+1. #WIP
+
+## 💰 How to Play
+
+1. Connect your Aptos wallet
+2. Start a conversation with the bot on Telegram
+3. Pay APT tokens to send messages
+4. Use strategy and wit to convince the bot to reveal its treasure
+5. Receive your reward
+
+![Alt text](image.png)
+
+## 🔐 Security
+
+- All transactions are secured by Aptos blockchain
+
+## 👥 Team
+
+- [Joseph Hughes](https://github.com/d2Dreamer)
+- [Aladeen Battikh](https://github.com/aladeenb)
+- [Hemang Vora](https://github.com/hemangvora)
+
+## 🏆 Hackathon
+
+This project was created for Consensus Hong Kong 2025 Hackathon, showcasing the integration of blockchain technology with interactive gaming experiences.
+
+## 📄 License
+
+[MIT](https://opensource.org/licenses/MIT)
+
+## 🤝 Contributing
+
+We welcome contributions! Please feel free to submit a Pull Request.
+
+## 📞 Contact
+
+[Joseph Hughes](https://t.me/d2Dreamer)
+[Aladeen Battikh](https://t.me/aladeen_cl)
+[Hemang Vora](https://t.me/corotvoid)
